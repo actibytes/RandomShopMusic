@@ -1,0 +1,10 @@
+{
+    "name": "SOUND_PACK_NAME",
+    "version_number": "1.0.0",
+    "website_url": "",
+    "description": "Play random songs while at the shop",
+    "dependencies": [
+        "BepInEx-BepInExPack-5.4.2100",
+        "loaforc-loaforcsSoundAPI-2.0.6"
+    ]
+}
