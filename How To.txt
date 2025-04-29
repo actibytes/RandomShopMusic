@@ -1,0 +1,30 @@
+CREATE SOUND PACK
+1. Right-click Template.zip > Extract All...
+
+2. Add audio files to the sounds folder in Template\plugins\SOUND_PACK_NAME\
+
+3. Right-click GenRep.ps1 > Run with PowerShell
+   - Type 1 for choice in PowerShell window and press Enter
+   - Type your sound pack name and press Enter
+
+4. Change the icon image
+   - size: 256 x 256, format: png
+   - crop with aspect ratio 1:1 (square) if you need to
+   - https://imageresizer.com/
+     
+5. Create the zip file
+   - Highlight the 5 items inside the Template folder 
+   - Right-click > Send to > Compressed (zipped) folder
+
+
+
+UPDATE SOUND PACK
+1. Add or Remove audio files in the sounds folder
+
+2. Right-click GenRep.ps1 > Run with PowerShell
+   - Type 2 for choice in PowerShell window and press Enter
+   - Type y to use suggested version or n  to type a new version number 
+   - Type y and press Enter in PowerShell window to update
+
+3. re-zip as before
+   
