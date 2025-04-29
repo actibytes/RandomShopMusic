@@ -3,7 +3,7 @@ CREATE SOUND PACK
 
 2. Add audio files to the sounds folder in Template\plugins\SOUND_PACK_NAME\
 
-3. Right-click GenRep.ps1 > Run with PowerShell
+3. Right-click RandomShopMusic.ps1 > Run with PowerShell
    - Type 1 for choice in PowerShell window and press Enter
    - Type your sound pack name and press Enter
 
@@ -21,7 +21,7 @@ CREATE SOUND PACK
 UPDATE SOUND PACK
 1. Add or Remove audio files in the sounds folder
 
-2. Right-click GenRep.ps1 > Run with PowerShell
+2. Right-click RandomShopMusic.ps1 > Run with PowerShell
    - Type 2 for choice in PowerShell window and press Enter
    - Type y to use suggested version or n  to type a new version number 
    - Type y and press Enter in PowerShell window to update
