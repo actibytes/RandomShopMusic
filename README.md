@@ -27,26 +27,22 @@ Follow these simple steps to create or update a custom sound pack for **RandomSh
 
 ## 🎵 Creating a Sound Pack
 
-1. **Extract the Template**  
-   - Inside the folder, find `Template.zip`.  
-   - Right-click it > **Extract All...**
-
-2. **Add Your Audio Files**  
+1. **Add Your Audio Files**  
    - Go to:  
      `Template\plugins\SOUND_PACK_NAME\sounds\`  
    - Add your audio files into the `sounds` folder.
 
-3. **Run the Script**  
+2. **Run the Script**  
    - Right-click on `RandomShopMusic.ps1`  
    - Choose **Run with PowerShell**
      - Type `1` and press Enter to create a new sound pack.
      - When prompted, type **your sound pack name** and press Enter.
 
-4. **Change the Icon** *(Optional)*  
+3. **Change the Icon** *(Optional)*  
    - Use a 256x256 PNG image (square).  
    - You can resize and crop here: [https://imageresizer.com](https://imageresizer.com)
 
-5. **Create the ZIP File**  
+4. **Create the ZIP File**  
    - Open the **Template** folder.  
    - Select the five items inside it (not the folder itself).  
    - Right-click > **Send to** > **Compressed (zipped) folder**
