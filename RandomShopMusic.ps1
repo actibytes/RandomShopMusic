@@ -14,7 +14,6 @@ function Write-Message($message, $color = "White") {
     [System.Console]::ForegroundColor = $oldColor
 }
 
-# Replace JSON field function
 function Replace-JsonFieldValue {
     param (
         [string]$FilePath,
@@ -28,7 +27,6 @@ function Replace-JsonFieldValue {
     }
 
     $content = Get-Content $FilePath -Raw
-
     $pattern = '"{0}"\s*:\s*"[^"]*"' -f [regex]::Escape($FieldName)
     $replacement = '"{0}": "{1}"' -f $FieldName, $NewValue
 
@@ -42,12 +40,10 @@ function Replace-JsonFieldValue {
     }
 }
 
-# Paths
 $templateDir = "Template"
 $pluginDir = Join-Path $templateDir "plugins"
 $defaultPackName = "SOUND_PACK_NAME"
 
-# Find pack folder
 $packFolder = Get-ChildItem -Path $pluginDir -Directory | Select-Object -First 1
 if (-not $packFolder) { Write-Message "No pack found!" "Red"; Pause; Exit }
 
@@ -56,7 +52,6 @@ $oldFolder = $packFolder.FullName
 $soundsDir = Join-Path $oldFolder "sounds"
 $readmeFile = Join-Path $templateDir "README.md"
 
-# Validate sounds
 if (-not (Test-Path $soundsDir)) { Write-Message "Sounds folder missing." "Red" ; Pause; Exit }
 $audioFiles = Get-ChildItem $soundsDir -Include *.mp3, *.ogg, *.wav -File -Recurse
 if (-not $audioFiles) { 
@@ -80,6 +75,7 @@ if (-not $audioFiles) {
         Pause; Exit
     }
 }
+
 function Replace-InFile($filePath, $oldText, $newText) {
     (Get-Content $filePath -Raw) -replace [regex]::Escape($oldText), $newText | Set-Content $filePath -Encoding UTF8
 }
@@ -106,7 +102,6 @@ function Compare-Versions($currentVersion, $newVersion) {
     return $newParts.Count -gt $currentParts.Count
 }
 
-# --- Main Menu ---
 Write-Host "Options:"
 Write-Host "[1] Create a new sound pack"
 if ($packName -ne $defaultPackName) {
@@ -120,10 +115,8 @@ if ($choice -eq "2" -and $packName -eq $defaultPackName) {
     Pause; Exit
 }
 
-
 switch ($choice) {
 '1' {
-    # --- Create new sound pack ---
     $displayName = Read-Host "Enter sound pack name"
     $newPackName = ($displayName.Trim()) -replace '\s', '_'
     $newFolder = Join-Path $pluginDir $newPackName
@@ -133,7 +126,7 @@ switch ($choice) {
         Pause; Exit
     }
 
-    $oldPackName = $packName  # Save before rename
+    $oldPackName = $packName
     Rename-Item $oldFolder -NewName $newPackName
     $oldFolder = $newFolder
     $packName = $newPackName
@@ -152,7 +145,6 @@ switch ($choice) {
         Replace-InFile $soundPackPath $oldPackName $newPackName
         Replace-JsonFieldValue -FilePath $soundPackPath -FieldName "name" -NewValue $newPackName
     }
-
 
     if (Test-Path $readmeFile) {
         $readme = Get-Content $readmeFile
@@ -210,10 +202,9 @@ default {
     Pause; Exit
 }
 }
-# --- Always update README track list ---
+
 Update-ReadmeTrackList -readmePath $readmeFile -audioFiles $audioFiles
 
-# --- Create or update replacer.json ---
 $replacersDir = Join-Path $oldFolder "replacers"
 $replacerJsonPath = Join-Path $replacersDir "replacer.json"
 if (-not (Test-Path $replacersDir)) { New-Item -ItemType Directory -Path $replacersDir | Out-Null }
@@ -242,16 +233,24 @@ $(($soundsList -join ",`r`n"))
     Write-Message "replacer.json updated." "Cyan"
 }
 
-# --- Create zipped soundpack ---
-$soundPackDir = Join-Path (Get-Location) "soundpack"
-if (-not (Test-Path $soundPackDir)) { New-Item -ItemType Directory -Path $soundPackDir | Out-Null }
+# --- Ask user if they want to zip the soundpack ---
+$zipChoice = Read-Host "Would you like to create a zip of the sound pack? (Y/N)"
+if ($zipChoice -match "^[Yy]$") {
+    $soundPackDir = Join-Path (Get-Location) "soundpack"
+    if (-not (Test-Path $soundPackDir)) {
+        New-Item -ItemType Directory -Path $soundPackDir | Out-Null
+    }
 
-$manifestContent = Get-Content (Join-Path $templateDir "manifest.json") -Raw
-$version = if ($manifestContent -match '"version_number"\s*:\s*"([^"]+)"') { $matches[1] } else { "1.0.0" }
-$zipNameSafe = ($packName -replace '[\\/:*?"<>|]', '_') + "-" + $version + ".zip"
-$zipFilePath = Join-Path $soundPackDir $zipNameSafe
-Compress-Archive -Path (Join-Path $templateDir "*") -DestinationPath $zipFilePath -Force
+    $manifestContent = Get-Content (Join-Path $templateDir "manifest.json") -Raw
+    $version = if ($manifestContent -match '"version_number"\s*:\s*"([^"]+)"') { $matches[1] } else { "1.0.0" }
+    $zipNameSafe = ($packName -replace '[\\/:*?"<>|]', '_') + "-" + $version + ".zip"
+    $zipFilePath = Join-Path $soundPackDir $zipNameSafe
+    Compress-Archive -Path (Join-Path $templateDir "*") -DestinationPath $zipFilePath -Force
 
-Write-Message "Zipped pack created: $zipNameSafe" "Cyan"
+    Write-Message "Zipped pack created: $zipNameSafe" "Cyan"
+} else {
+    Write-Message "Skipping zip creation." "Cyan"
+}
+
 Write-Message "All done!" "Green"
 Pause
