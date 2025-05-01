@@ -15,34 +15,33 @@ Ideal for music pack creators who want to easily add their own tracks and upload
 
 ## Getting Started
 
-Follow these simple steps to create or update a custom sound pack for **RandomShopMusic**.
+Follow these simple steps to create or update a custom sound pack with **RandomShopMusic**.
 
 ### 📥 1. Download and Extract
 
-1. Click the green **Code** button on this page, then choose **Download ZIP**.
-2. Extract the ZIP file. You’ll get a folder named **RandomShopMusic-main**.
+1. **[Download the latest version here](https://github.com/actibytes/RandomShopMusic/releases/latest/download/RandomShopMusic.zip)**  
+
+2. Extract the downloaded ZIP file. You’ll get a folder named **RandomShopMusic**.
+
 3. Open that folder to begin.
 
 ---
 
 ## 🎵 Creating a Sound Pack
 
-1. **Add Your Audio Files**  
-   - Go to:  
-     `Template\plugins\SOUND_PACK_NAME\sounds\`  
-   - Add your audio files into the `sounds` folder.
+ **Change the Icon** *(Optional)*  
+   - Use a 256x256 PNG image.  
+   - You can resize and crop here: [https://imageresizer.com](https://imageresizer.com)
+   - Overwrite the icon.png in `Template\icon.png`
 
-2. **Run the Script**  
-   - Right-click on `RandomShopMusic.ps1`  
+ **Run the Script**  
+   - Right-click on `RandomShopMusic.ps1`
    - Choose **Run with PowerShell**
+     - Select your Audio Files using the File dialog
      - Type `1` and press Enter to create a new sound pack.
      - When prompted, type **your sound pack name** and press Enter.
 
-3. **Change the Icon** *(Optional)*  
-   - Use a 256x256 PNG image (square).  
-   - You can resize and crop here: [https://imageresizer.com](https://imageresizer.com)
-
-4. **Create the ZIP File**  
+ **If you skip zip creation manually create the ZIP File**  
    - Open the **Template** folder.  
    - Select the five items inside it (not the folder itself).  
    - Right-click > **Send to** > **Compressed (zipped) folder**
@@ -63,3 +62,4 @@ Follow these simple steps to create or update a custom sound pack for **RandomSh
 
 3. **Re-Zip the Files**  
    - Just like before, zip the five items inside the **Template** folder.
+
