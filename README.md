@@ -1,6 +1,6 @@
-# RandomShopMusic
+# SoundPackManager
 
-**RandomShopMusic** is a PowerShell-based utility that helps automate the creation of **shop music packs** for **R.E.P.O.**, a modding system powered by the `loaforcsSoundAPI`. It uses a standardized template structure to streamline the process of customizing shop music in your game.
+**SoundPackManager** is a PowerShell-based utility that helps automate the creation of **Shop music packs** for **R.E.P.O.**, a modding system powered by the `loaforcsSoundAPI`. It uses a standardized template structure to streamline the process of customizing shop music in your game.
 
 ## Features
 
@@ -15,13 +15,13 @@ Ideal for music pack creators who want to easily add their own tracks and upload
 
 ## Getting Started
 
-Follow these simple steps to create or update a custom sound pack with **RandomShopMusic**.
+Follow these simple steps to create or update a custom sound pack with **SoundPackManager**.
 
 ### 📥 1. Download and Extract
 
-1. **[Download the latest version here](https://github.com/actibytes/RandomShopMusic/releases/latest/download/RandomShopMusic.zip)**  
+1. **[Download the latest version here](https://github.com/actibytes/RandomShopMusic/releases/latest/download/SoundPackManager.zip)**  
 
-2. Extract the downloaded ZIP file. You’ll get a folder named **RandomShopMusic**.
+2. Extract the downloaded ZIP file. You’ll get a folder named **SoundPackManager**.
 
 3. Open that folder to begin.
 
@@ -35,13 +35,13 @@ Follow these simple steps to create or update a custom sound pack with **RandomS
    - Overwrite the icon.png in `Template\icon.png`
 
  **Run the Script**  
-   - Right-click on `RandomShopMusic.ps1`
+   - Right-click on `SoundPackManager.ps1`
    - Choose **Run with PowerShell**
      - Select your Audio Files using the File dialog
      - Type `1` and press Enter to create a new sound pack.
      - When prompted, type **your sound pack name** and press Enter.
 
- **If you skip zip creation manually create the ZIP File**  
+ **If you skip zip creation, manually create the ZIP File**  
    - Open the **Template** folder.  
    - Select the five items inside it (not the folder itself).  
    - Right-click > **Send to** > **Compressed (zipped) folder**
@@ -62,4 +62,3 @@ Follow these simple steps to create or update a custom sound pack with **RandomS
 
 3. **Re-Zip the Files**  
    - Just like before, zip the five items inside the **Template** folder.
-
