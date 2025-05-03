@@ -37,28 +37,27 @@ Follow these simple steps to create or update a custom sound pack with **SoundPa
  **Run the Script**  
    - Right-click on `SoundPackManager.ps1`
    - Choose **Run with PowerShell**
-     - Select your Audio Files using the File dialog
      - Type `1` and press Enter to create a new sound pack.
-     - When prompted, type **your sound pack name** and press Enter.
-
- **If you skip zip creation, manually create the ZIP File**  
-   - Open the **Template** folder.  
-   - Select the five items inside it (not the folder itself).  
-   - Right-click > **Send to** > **Compressed (zipped) folder**
+     - When prompted, type your sound pack name and press Enter.
+     - Select your Audio Files using the File dialog
 
 ---
 
 ## 🔁 Updating a Sound Pack
 
-1. **Modify Audio Files**  
+**Modify Audio Files**  
    - Go to:  
-     `Template\plugins\SOUND_PACK_NAME\sounds\`  
-   - Add or remove audio files as needed.
+     `Template\plugins\<YOUR_SOUND_PACK_NAME>\sounds\`  
+   - Remove audio files as needed.
 
-2. **Run the Script Again**  
+**Run the Script**  
    - Right-click `RandomShopMusic.ps1` > **Run with PowerShell**
      - Type `2` and press Enter to update the pack.
-     - Follow the prompts to confirm the version number.
+     - Select your Audio Files using the File dialog
+     - Follow the prompts to confirm or Deny.
 
-3. **Re-Zip the Files**  
-   - Just like before, zip the five items inside the **Template** folder.
+---
+ ## If you skip zip creation, manually create the ZIP File
+   - Open the **Template** folder.  
+   - Select the five items inside it (not the folder itself).  
+   - Right-click > **Send to** > **Compressed (zipped) folder**
